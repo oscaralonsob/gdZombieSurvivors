@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Oldman_iddle.png-443da75d483a520a9ed6d787a67d87c8.stex"
+path="res://.import/Oldman_iddle.png-e549464ef9951bf2809c22af3c9cf454.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/Oldman_iddle.png"
-dest_files=[ "res://.import/Oldman_iddle.png-443da75d483a520a9ed6d787a67d87c8.stex" ]
+source_file="res://player/asset/Oldman_iddle.png"
+dest_files=[ "res://.import/Oldman_iddle.png-e549464ef9951bf2809c22af3c9cf454.stex" ]
 
 [params]
 

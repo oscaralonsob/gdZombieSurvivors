@@ -4,7 +4,11 @@ extends KinematicBody2D
 const SPEED = 150
 
 
-onready var _animated_sprite = $AnimatedSprite
+export(PackedScene) var bullet_scene
+
+
+onready var _gun_position: Position2D = $GunPosition
+onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 
 
 func _unhandled_input(event) -> void:
@@ -47,4 +51,7 @@ func _process_rotation() -> void:
 
 
 func _shoot() -> void:
-	print("I'm shooting")
+	var bullet: KinematicBody2D = bullet_scene.instance()
+	get_parent().add_child(bullet)
+	bullet.global_rotation = _gun_position.global_rotation
+	bullet.global_position = _gun_position.global_position

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/manOld_silencer.png-11e38b95bcb8582b509b7d74bfb881f8.stex"
+path="res://.import/manOld_stand.png-12534b24ae1a1c1bd5c217d6d9d3307e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/manOld_silencer.png"
-dest_files=[ "res://.import/manOld_silencer.png-11e38b95bcb8582b509b7d74bfb881f8.stex" ]
+source_file="res://player/asset/manOld_stand.png"
+dest_files=[ "res://.import/manOld_stand.png-12534b24ae1a1c1bd5c217d6d9d3307e.stex" ]
 
 [params]
 
