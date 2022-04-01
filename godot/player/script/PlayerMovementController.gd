@@ -7,11 +7,18 @@ const SPEED = 150
 onready var _animated_sprite = $AnimatedSprite
 
 
+func _unhandled_input(event) -> void:
+	if event.is_action_released("ui_shoot"):
+		_shoot()
+
+
 func _physics_process(_delta: float) -> void:
-	_process_input(_delta)
+	var vector_movement: Vector2 = _get_movement_input()
+	_process_movement(vector_movement, _delta)
+	_process_rotation()
 
 
-func _process_input(delta: float) -> void:
+func _get_movement_input() -> Vector2:
 	var vector_movement: Vector2 = Vector2()
 	
 	if Input.is_action_pressed("ui_right"):
@@ -23,19 +30,21 @@ func _process_input(delta: float) -> void:
 	if Input.is_action_pressed("ui_down"):
 		vector_movement.y += 1
 	
+	return vector_movement;
+
+
+func _process_movement(vector_movement: Vector2, delta: float) -> void:
+	var collision_info = move_and_collide(vector_movement * SPEED * delta)
 	
 	if vector_movement != Vector2.ZERO:
 		_animated_sprite.play("Walk")
 	else:
 		_animated_sprite.play("Idle")
-	
-	_process_movement(vector_movement, delta)
-	_process_rotation()
-
-
-func _process_movement(movement_vector: Vector2, delta: float) -> void:
-	var collision_info = move_and_collide(movement_vector * SPEED * delta)
 
 
 func _process_rotation() -> void:
 	look_at(get_global_mouse_position())
+
+
+func _shoot() -> void:
+	print("I'm shooting")
