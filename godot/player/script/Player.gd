@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 
-const SPEED = 150
+const SPEED: int = 150
+const HEALTH: int = 100
 
 
 export(PackedScene) var bullet_scene
@@ -11,15 +12,23 @@ onready var _gun_position: Position2D = $GunPosition
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 
 
+# TODO: add cd damage like 0.1s
+var _current_health: int = HEALTH
+var _inmunity_cd: float = 0.5
+var _inmunity_timer: float = 0
+
+
+
 func _unhandled_input(event) -> void:
 	if event.is_action_released("ui_shoot"):
 		_shoot()
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var vector_movement: Vector2 = _get_movement_input()
-	_process_movement(vector_movement, _delta)
+	_process_movement(vector_movement, delta)
 	_process_rotation()
+	_update_inmunity_cd(delta)
 
 
 func _get_movement_input() -> Vector2:
@@ -55,3 +64,21 @@ func _shoot() -> void:
 	get_parent().add_child(bullet)
 	bullet.global_rotation = _gun_position.global_rotation
 	bullet.global_position = _gun_position.global_position
+
+
+func _update_inmunity_cd(delta: float) -> void:
+	if _is_in_damage_cd():
+		_inmunity_timer -= delta
+
+
+func _is_in_damage_cd() -> bool:
+	return _inmunity_timer > 0
+
+
+func recieve_zombie_damage(damage: int) -> void:
+	if !_is_in_damage_cd():
+		_inmunity_timer = _inmunity_cd
+		_current_health -= damage
+		
+		if _current_health <= 0:
+			queue_free()

@@ -23,8 +23,8 @@ func _process_movement(delta: float) -> void:
 
 
 func _execute_collision(collision: KinematicCollision2D ) -> void:
-	if collision.collider.has_method("recieve_damage"):
-		collision.collider.recieve_damage(DMG)
+	if collision.collider.has_method("recieve_projectile_damage"):
+		collision.collider.recieve_projectile_damage(DMG)
 		
 	queue_free()
 	
