@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Node2D",
 "class": "CDHelper",
 "language": "GDScript",
-"path": "res://helper/CDHelper.gd"
+"path": "res://helper/script/CDHelper.gd"
 } ]
 _global_script_class_icons={
 "CDHelper": ""

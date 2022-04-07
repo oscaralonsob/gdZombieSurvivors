@@ -10,10 +10,15 @@ export(PackedScene) var bullet_scene
 
 onready var _gun_position: Position2D = $GunPosition
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
+onready var _immunity_cd: CDHelper = preload("res://helper/scene/CDHelper.tscn").instance()
 
 
 var _current_health: int = HEALTH
-var _inmunity_cd: CDHelper = CDHelper.new(0.5)
+var _is_immune: bool = false
+
+
+func _ready() -> void:
+	_immunity_cd.init(0.5, self, "disable_immunity", false)
 
 
 func _unhandled_input(event) -> void:
@@ -25,7 +30,6 @@ func _physics_process(delta: float) -> void:
 	var vector_movement: Vector2 = _get_movement_input()
 	_process_movement(vector_movement, delta)
 	_process_rotation()
-	_update_cds(delta)
 
 
 func _get_movement_input() -> Vector2:
@@ -63,14 +67,20 @@ func _shoot() -> void:
 	bullet.global_position = _gun_position.global_position
 
 
-func _update_cds(delta: float) -> void:
-	_inmunity_cd.update(delta)
-
-
 func recieve_zombie_damage(damage: int) -> void:
-	if !_inmunity_cd.is_in_cd():
-		_inmunity_cd.put_on_cd()
+	if !_is_immune:
 		_current_health -= damage
+		enable_immunity()
 		
 		if _current_health <= 0:
 			queue_free()
+
+
+func enable_immunity() -> void:
+	_is_immune = true
+	_immunity_cd.put_on_cd()
+
+
+func disable_immunity() -> void:
+	_is_immune = false
+
