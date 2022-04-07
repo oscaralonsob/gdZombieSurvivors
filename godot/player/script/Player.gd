@@ -14,9 +14,7 @@ onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 
 # TODO: add cd damage like 0.1s
 var _current_health: int = HEALTH
-var _inmunity_cd: float = 0.5
-var _inmunity_timer: float = 0
-
+var _inmunity_cd: CDHelper = CDHelper.new(0.5)
 
 
 func _unhandled_input(event) -> void:
@@ -28,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	var vector_movement: Vector2 = _get_movement_input()
 	_process_movement(vector_movement, delta)
 	_process_rotation()
-	_update_inmunity_cd(delta)
+	_update_cds(delta)
 
 
 func _get_movement_input() -> Vector2:
@@ -66,18 +64,13 @@ func _shoot() -> void:
 	bullet.global_position = _gun_position.global_position
 
 
-func _update_inmunity_cd(delta: float) -> void:
-	if _is_in_damage_cd():
-		_inmunity_timer -= delta
-
-
-func _is_in_damage_cd() -> bool:
-	return _inmunity_timer > 0
+func _update_cds(delta: float) -> void:
+	_inmunity_cd.update(delta)
 
 
 func recieve_zombie_damage(damage: int) -> void:
-	if !_is_in_damage_cd():
-		_inmunity_timer = _inmunity_cd
+	if !_inmunity_cd.is_in_cd():
+		_inmunity_cd.put_on_cd()
 		_current_health -= damage
 		
 		if _current_health <= 0:

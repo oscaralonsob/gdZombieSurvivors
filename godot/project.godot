@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "CDHelper",
+"language": "GDScript",
+"path": "res://helper/CDHelper.gd"
+} ]
+_global_script_class_icons={
+"CDHelper": ""
+}
+
 [application]
 
 config/name="gdZombieSurvivor"
