@@ -60,7 +60,7 @@ func _process_rotation() -> void:
 
 
 func _shoot() -> void:
-	var bullet: KinematicBody2D = bullet_scene.instance()
+	var bullet: Node2D = bullet_scene.instance()
 	get_parent().add_child(bullet)
 	bullet.global_rotation = _gun_position.global_rotation
 	bullet.global_position = _gun_position.global_position
