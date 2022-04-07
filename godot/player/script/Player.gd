@@ -12,7 +12,6 @@ onready var _gun_position: Position2D = $GunPosition
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 
 
-# TODO: add cd damage like 0.1s
 var _current_health: int = HEALTH
 var _inmunity_cd: CDHelper = CDHelper.new(0.5)
 

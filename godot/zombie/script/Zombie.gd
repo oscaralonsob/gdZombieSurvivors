@@ -39,7 +39,6 @@ func _knock_back() -> void:
 func _execute_collision(collision: KinematicCollision2D ) -> void:
 	if collision.collider.has_method("recieve_zombie_damage"):
 		collision.collider.recieve_zombie_damage(DMG)
-		
 
 
 func recieve_projectile_damage(damage: int) -> void:
