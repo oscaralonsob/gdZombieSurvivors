@@ -12,6 +12,9 @@ onready var _gun_position: Position2D = $GunPosition
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var _immunity_timer: TimerHelper = preload("res://helper/scene/TimerHelper.tscn").instance()
 
+# TODO: probably move this to the gun itself once I decide who to manage different kinds of weapons
+onready var _weapon_cd: CDHelper = preload("res://helper/scene/CDHelper.tscn").instance()
+
 
 var _current_health: int = HEALTH
 var _is_immune: bool = false
@@ -19,11 +22,7 @@ var _is_immune: bool = false
 
 func _ready() -> void:
 	_immunity_timer.init(0.5, self, "disable_immunity")
-
-
-func _unhandled_input(event) -> void:
-	if event.is_action_released("ui_shoot"):
-		_shoot()
+	_weapon_cd.init(1, self, "_shoot")
 
 
 func _physics_process(delta: float) -> void:

@@ -1,6 +1,5 @@
 extends Node2D
 class_name CDHelper
-#TODO: create a CDHelper (loop, this one) and a timerHelper (non loop, just once)
 
 
 var _cd: float = 0
