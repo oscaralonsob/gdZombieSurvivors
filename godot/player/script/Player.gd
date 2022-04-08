@@ -5,15 +5,8 @@ const SPEED: int = 150
 const HEALTH: int = 100
 
 
-export(PackedScene) var bullet_scene
-
-
-onready var _gun_position: Position2D = $GunPosition
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var _immunity_timer: TimerHelper = preload("res://helper/scene/TimerHelper.tscn").instance()
-
-# TODO: probably move this to the gun itself once I decide who to manage different kinds of weapons
-onready var _weapon_cd: CDHelper = preload("res://helper/scene/CDHelper.tscn").instance()
 
 
 var _current_health: int = HEALTH
@@ -22,7 +15,6 @@ var _is_immune: bool = false
 
 func _ready() -> void:
 	_immunity_timer.init(0.5, self, "disable_immunity")
-	_weapon_cd.init(1, self, "_shoot")
 
 
 func _physics_process(delta: float) -> void:
@@ -57,13 +49,6 @@ func _process_movement(vector_movement: Vector2, delta: float) -> void:
 
 func _process_rotation() -> void:
 	look_at(get_global_mouse_position())
-
-
-func _shoot() -> void:
-	var bullet: Node2D = bullet_scene.instance()
-	get_parent().add_child(bullet)
-	bullet.global_rotation = _gun_position.global_rotation
-	bullet.global_position = _gun_position.global_position
 
 
 func recieve_zombie_damage(damage: int) -> void:
