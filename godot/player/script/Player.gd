@@ -10,7 +10,7 @@ export(PackedScene) var bullet_scene
 
 onready var _gun_position: Position2D = $GunPosition
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
-onready var _immunity_cd: CDHelper = preload("res://helper/scene/CDHelper.tscn").instance()
+onready var _immunity_timer: TimerHelper = preload("res://helper/scene/TimerHelper.tscn").instance()
 
 
 var _current_health: int = HEALTH
@@ -18,7 +18,7 @@ var _is_immune: bool = false
 
 
 func _ready() -> void:
-	_immunity_cd.init(0.5, self, "disable_immunity", false)
+	_immunity_timer.init(0.5, self, "disable_immunity")
 
 
 func _unhandled_input(event) -> void:
@@ -78,7 +78,7 @@ func recieve_zombie_damage(damage: int) -> void:
 
 func enable_immunity() -> void:
 	_is_immune = true
-	_immunity_cd.put_on_cd()
+	_immunity_timer.reset()
 
 
 func disable_immunity() -> void:

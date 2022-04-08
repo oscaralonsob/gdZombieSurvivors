@@ -1,6 +1,5 @@
 extends Node2D
-class_name CDHelper
-#TODO: create a CDHelper (loop, this one) and a timerHelper (non loop, just once)
+class_name TimerHelper
 
 
 var _cd: float = 0
@@ -15,7 +14,7 @@ func init(cd: float, parent: Node2D, func_name: String) -> void:
 	_cd = cd
 
 
-func put_on_cd() -> void:
+func reset() -> void:
 	_current_cd = _cd
 
 
@@ -28,4 +27,3 @@ func _process(delta: float) -> void:
 		_current_cd -= delta
 	else:
 		_func_ref.call_func()
-		put_on_cd()

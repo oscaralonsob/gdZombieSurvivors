@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "CDHelper",
 "language": "GDScript",
 "path": "res://helper/script/CDHelper.gd"
+}, {
+"base": "Node2D",
+"class": "TimerHelper",
+"language": "GDScript",
+"path": "res://helper/script/TimerHelper.gd"
 } ]
 _global_script_class_icons={
-"CDHelper": ""
+"CDHelper": "",
+"TimerHelper": ""
 }
 
 [application]
