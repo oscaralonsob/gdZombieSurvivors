@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://helper/script/CDHelper.gd"
 }, {
 "base": "Node2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://bullet/script/Projectile.gd"
+}, {
+"base": "Node2D",
 "class": "TimerHelper",
 "language": "GDScript",
 "path": "res://helper/script/TimerHelper.gd"
 } ]
 _global_script_class_icons={
 "CDHelper": "",
+"Projectile": "",
 "TimerHelper": ""
 }
 

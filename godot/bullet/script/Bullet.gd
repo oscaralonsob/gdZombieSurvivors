@@ -1,10 +1,7 @@
-extends Node2D
+extends Projectile
 
 
 const SPEED = 300
-
-# TODO: not constant in some moment
-const DMG = 10
 
 
 func _ready() -> void:
@@ -20,7 +17,5 @@ func _process_movement(delta: float) -> void:
 
 
 func _on_Area2D_body_entered(body):
-	if body.has_method("recieve_projectile_damage"):
-		body.recieve_projectile_damage(DMG)
-		
+	._on_Area2D_body_entered(body)
 	queue_free()

@@ -31,20 +31,18 @@ func _process_movement(delta: float) -> void:
 		_execute_collision(collision_info)
 
 
-func _knock_back() -> void:
-	var direction: Vector2 = (global_position - target.global_position).normalized()
-	var collision_info = move_and_collide(direction * KNOCK_BACK_FORCE)
-
-
 func _execute_collision(collision: KinematicCollision2D ) -> void:
 	if collision.collider.has_method("recieve_zombie_damage"):
 		collision.collider.recieve_zombie_damage(DMG)
 
 
-func recieve_projectile_damage(damage: int) -> void:
+func recieve_projectile_damage(damage: float) -> void:
 	_current_health -= damage
 	
 	if _current_health <= 0:
 		queue_free()
-	else:
-		_knock_back()
+
+
+func knock_back(foce: float) -> void:
+	var direction: Vector2 = (global_position - target.global_position).normalized()
+	var collision_info = move_and_collide(direction * KNOCK_BACK_FORCE)

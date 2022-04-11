@@ -1,14 +1,11 @@
-extends Node2D
+extends Projectile
 
 
-# TODO: not constant in some moment
-const DMG = 10
+var damage = 0
+var knock_back_force = 0
 
 
 onready var _animator_player: AnimationPlayer = $AnimationPlayer
-
-
-var _damaged_zombies: Array = []
 
 
 func _ready() -> void:
@@ -17,11 +14,3 @@ func _ready() -> void:
 
 func _animation_ended() -> void:
 	queue_free()
-
-
-
-func _on_Area2D_body_entered(body):
-	if body.has_method("recieve_projectile_damage"):
-		if !_damaged_zombies.has(body):
-			body.recieve_projectile_damage(DMG)
-			_damaged_zombies.append(body)
