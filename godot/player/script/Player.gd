@@ -17,6 +17,7 @@ var _exp: float = 0
 
 func _ready() -> void:
 	_immunity_timer.init(0.5, self, "disable_immunity")
+	EventBus.emit_signal("player_damaged_signal", _current_health, HEALTH)
 
 
 func _physics_process(delta: float) -> void:
@@ -56,10 +57,13 @@ func _process_rotation() -> void:
 func recieve_zombie_damage(damage: int) -> void:
 	if !_is_immune:
 		_current_health -= damage
+		EventBus.emit_signal("player_damaged_signal", _current_health, HEALTH)
 		enable_immunity()
 		
 		if _current_health <= 0:
 			queue_free()
+		
+		print(_current_health, "/", HEALTH)
 
 
 func enable_immunity() -> void:
