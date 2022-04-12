@@ -36,6 +36,10 @@ config/name="gdZombieSurvivor"
 run/main_scene="res://game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+EventBus="*res://autoloader/EventBus.gd"
+
 [input]
 
 ui_shoot={
