@@ -60,8 +60,6 @@ func recieve_zombie_damage(damage: int) -> void:
 		
 		if _current_health <= 0:
 			queue_free()
-		
-		print(_current_health, "/", HEALTH)
 
 
 func enable_immunity() -> void:
