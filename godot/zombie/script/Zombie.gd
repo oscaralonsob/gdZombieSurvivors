@@ -41,6 +41,7 @@ func recieve_projectile_damage(damage: float) -> void:
 	
 	if _current_health <= 0:
 		queue_free()
+		EventBus.emit_signal("exp_picked_up_signal", 10, 100)
 
 
 func knock_back(foce: float) -> void:
