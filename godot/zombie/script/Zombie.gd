@@ -5,6 +5,7 @@ const SPEED: int = 75
 const HEALTH: int = 40
 const KNOCK_BACK_FORCE: int = 30
 const DMG: int = 10
+const EXP: int = 10
 
 
 var _current_health: int = HEALTH 
@@ -41,7 +42,7 @@ func recieve_projectile_damage(damage: float) -> void:
 	
 	if _current_health <= 0:
 		queue_free()
-		EventBus.emit_signal("exp_picked_up_signal", 10, 100)
+		EventBus.emit_signal("exp_picked_up_signal", EXP)
 
 
 func knock_back(foce: float) -> void:
