@@ -11,4 +11,5 @@ func _ready():
 
 func _update_bar(v: float, max_v: float) -> void:
 	value = v
+	max_value = max_v
 	_label.text = str(v) + "/" + str(max_v)
