@@ -2,9 +2,8 @@ extends Node2D
 class_name Projectile
 
 
-# TODO: not constant in some moment
-export (float) var base_damage = 0
-export (float) var base_knock_back_force = 0
+var base_damage = 0
+var base_knock_back_force = 0
 
 
 var _affected_bodies: Array = []

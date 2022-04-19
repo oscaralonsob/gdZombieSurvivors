@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Projectile",
 "language": "GDScript",
-"path": "res://bullet/script/Projectile.gd"
+"path": "res://projectile/script/Projectile.gd"
 }, {
 "base": "Node2D",
 "class": "TimerHelper",
