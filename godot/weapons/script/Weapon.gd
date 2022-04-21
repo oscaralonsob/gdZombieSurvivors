@@ -1,4 +1,5 @@
 extends Position2D
+class_name Weapon
 
 
 export(PackedScene) var bullet_scene

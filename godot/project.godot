@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://helper/script/CDHelper.gd"
 }, {
 "base": "Node2D",
+"class": "ClassContainer",
+"language": "GDScript",
+"path": "res://player/script/Class.gd"
+}, {
+"base": "Node2D",
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://projectile/script/Projectile.gd"
@@ -23,11 +28,18 @@ _global_script_classes=[ {
 "class": "TimerHelper",
 "language": "GDScript",
 "path": "res://helper/script/TimerHelper.gd"
+}, {
+"base": "Position2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://weapons/script/Weapon.gd"
 } ]
 _global_script_class_icons={
 "CDHelper": "",
+"ClassContainer": "",
 "Projectile": "",
-"TimerHelper": ""
+"TimerHelper": "",
+"Weapon": ""
 }
 
 [application]

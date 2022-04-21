@@ -1,21 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/asset/manOld.png" type="Texture" id=1]
 [ext_resource path="res://player/asset/Oldman_iddle.png" type="Texture" id=2]
 [ext_resource path="res://player/script/Player.gd" type="Script" id=3]
-[ext_resource path="res://weapons/scenes/Gun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/script/ClassManager.gd" type="Script" id=4]
+[ext_resource path="res://player/scene/ClassContainerMelee.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 2.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -28,10 +29,13 @@ script = ExtResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -10, 0 )
 shape = SubResource( 2 )
 
-[node name="Gun" parent="." instance=ExtResource( 5 )]
+[node name="ClassManager" type="Node2D" parent="."]
+script = ExtResource( 4 )
+class_scene = ExtResource( 5 )
