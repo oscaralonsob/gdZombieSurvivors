@@ -15,6 +15,10 @@ var _is_immune: bool = false
 
 func _ready() -> void:
 	_immunity_timer.init(0.5, self, "disable_immunity")
+	EventBus.connect("scene_fully_loaded_signal", self, "_scene_fully_loaded")
+
+
+func _scene_fully_loaded() -> void:
 	EventBus.emit_signal("player_damaged_signal", _current_health, HEALTH)
 
 
