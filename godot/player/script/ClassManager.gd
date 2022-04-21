@@ -1,14 +1,15 @@
 extends Node2D
 
 
-export (PackedScene) var class_scene
-onready var _class: ClassContainer = class_scene.instance()
-onready var _weapon: Weapon = _class.weapon_scene.instance()
+var _class: ClassContainer
+var _weapon: Weapon
 
 
 func _ready() -> void:
-	EventBus.connect("scene_fully_loaded_signal", self, "_class_selected")
+	EventBus.connect("class_selected_signal", self, "_class_selected")
 
 
-func _class_selected() -> void:
+func _class_selected(class_scene: PackedScene) -> void:
+	_class = class_scene.instance()
+	_weapon = _class.weapon_scene.instance()
 	get_parent().add_child(_weapon)
