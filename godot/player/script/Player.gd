@@ -2,14 +2,14 @@ extends KinematicBody2D
 
 
 const SPEED: int = 150
-const HEALTH: int = 100
+var health: int = 100
 
 
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var _immunity_timer: TimerHelper = preload("res://helper/scene/TimerHelper.tscn").instance()
 
 
-var _current_health: int = HEALTH
+var _current_health: int = health
 var _is_immune: bool = false
 
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 
 func _scene_fully_loaded() -> void:
-	EventBus.emit_signal("player_damaged_signal", _current_health, HEALTH)
+	EventBus.emit_signal("player_damaged_signal", _current_health, health)
 
 
 func _physics_process(delta: float) -> void:
@@ -59,7 +59,7 @@ func _process_rotation() -> void:
 func recieve_zombie_damage(damage: int) -> void:
 	if !_is_immune:
 		_current_health -= damage
-		EventBus.emit_signal("player_damaged_signal", _current_health, HEALTH)
+		EventBus.emit_signal("player_damaged_signal", _current_health, health)
 		enable_immunity()
 		
 		if _current_health <= 0:
@@ -74,3 +74,8 @@ func enable_immunity() -> void:
 func disable_immunity() -> void:
 	_is_immune = false
 
+
+func set_profession(c: ProfessionContainer) -> void:
+	health = c.health.get_value()
+	_current_health = health
+	_scene_fully_loaded()

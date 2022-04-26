@@ -12,6 +12,6 @@ func _enable_select_class() -> void:
 	get_tree().paused = true
 
 
-func _selected_class(class_container: ClassContainer) -> void:
+func _selected_class(class_container: ProfessionContainer) -> void:
 	$ClassMenu2.visible = false
 	get_tree().paused = false
