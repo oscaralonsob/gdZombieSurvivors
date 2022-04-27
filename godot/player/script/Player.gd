@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-const SPEED: int = 150
+var speed: int = 150
 var health: int = 100
 
 
@@ -44,7 +44,7 @@ func _get_movement_input() -> Vector2:
 
 
 func _process_movement(vector_movement: Vector2, delta: float) -> void:
-	var collision_info = move_and_collide(vector_movement * SPEED * delta)
+	var collision_info = move_and_collide(vector_movement * speed * delta)
 	
 	if vector_movement != Vector2.ZERO:
 		_animated_sprite.play("Walk")
