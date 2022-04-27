@@ -2,8 +2,8 @@
 
 [ext_resource path="res://player/script/ProfessionContainer.gd" type="Script" id=1]
 [ext_resource path="res://weapons/scenes/Gun.tscn" type="PackedScene" id=2]
-[ext_resource path="res://player/resource/stat_health_ranger.tres" type="Resource" id=3]
-[ext_resource path="res://player/resource/stat_speed_ranger.tres" type="Resource" id=4]
+[ext_resource path="res://player/profession/ranger/stat_health_ranger.tres" type="Resource" id=3]
+[ext_resource path="res://player/profession/ranger/stat_speed_ranger.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
