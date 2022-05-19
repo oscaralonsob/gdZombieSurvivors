@@ -14,20 +14,50 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://helper/script/CDHelper.gd"
 }, {
+"base": "Resource",
+"class": "Perk",
+"language": "GDScript",
+"path": "res://player/script/Perk.gd"
+}, {
+"base": "Resource",
+"class": "ProfessionContainer",
+"language": "GDScript",
+"path": "res://player/script/ProfessionContainer.gd"
+}, {
+"base": "Reference",
+"class": "ProfessionEnums",
+"language": "GDScript",
+"path": "res://player/script/ProfessionEnums.gd"
+}, {
 "base": "Node2D",
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://projectile/script/Projectile.gd"
 }, {
+"base": "Resource",
+"class": "Stat",
+"language": "GDScript",
+"path": "res://player/script/Stat.gd"
+}, {
 "base": "Node2D",
 "class": "TimerHelper",
 "language": "GDScript",
 "path": "res://helper/script/TimerHelper.gd"
+}, {
+"base": "Position2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://weapons/script/Weapon.gd"
 } ]
 _global_script_class_icons={
 "CDHelper": "",
+"Perk": "",
+"ProfessionContainer": "",
+"ProfessionEnums": "",
 "Projectile": "",
-"TimerHelper": ""
+"Stat": "",
+"TimerHelper": "",
+"Weapon": ""
 }
 
 [application]
