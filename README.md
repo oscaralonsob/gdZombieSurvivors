@@ -1,6 +1,6 @@
 # gdZombieSurvivors
 
-Another small game used to learn Godot. IThis is gonna take a while probably.
+Another small game used to learn Godot. This is gonna take a while probably.
 
 The project runs in **Godot 3**.
 

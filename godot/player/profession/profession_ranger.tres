@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://player/script/ProfessionContainer.gd" type="Script" id=1]
+[ext_resource path="res://weapons/scenes/Gun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/script/Stat.gd" type="Script" id=3]
+[ext_resource path="res://player/script/Perk.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+_stat_type = 0
+_base_value = 100
+_current_perks = [  ]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+_statType = 2
+_perkType = 1
+_value = 10.0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 4 )
+_statType = 1
+_perkType = 0
+_value = 100.0
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 3 )
+_stat_type = 0
+_base_value = 175
+_current_perks = [  ]
+
+[resource]
+script = ExtResource( 1 )
+weapon_scene = ExtResource( 2 )
+health = SubResource( 1 )
+speed = SubResource( 4 )
+perks = [ SubResource( 2 ), SubResource( 3 ) ]
