@@ -8,7 +8,7 @@ const DMG: int = 10
 const EXP: int = 10
 
 
-var _current_health: int = HEALTH 
+var _current_health: float = HEALTH 
 
 
 # TODO: Do not like this tbh
