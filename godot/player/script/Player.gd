@@ -11,8 +11,6 @@ onready var _immunity_timer: TimerHelper = preload("res://helper/scene/TimerHelp
 
 var _current_health: int = health
 var _is_immune: bool = false
-# TODO: create a level manager, remove from here
-var _exp: float = 0
 
 
 func _ready() -> void:

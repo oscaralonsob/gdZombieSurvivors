@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://zombie/scene/ZombieSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/scene/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/scene/HealthBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://autoloader/Scene.gd" type="Script" id=4]
+[ext_resource path="res://UI/scene/ExpBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/scene/ClassManagerSelector.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/script/MenuEventController.gd" type="Script" id=6]
+[ext_resource path="res://autoloader/Scene.gd" type="Script" id=7]
 
 [node name="Scene" type="Node2D"]
-script = ExtResource( 4 )
+script = ExtResource( 7 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
@@ -19,6 +20,12 @@ margin_left = 50.0
 margin_top = 500.0
 margin_right = 150.0
 margin_bottom = 525.0
+
+[node name="ProgressBar" parent="." instance=ExtResource( 4 )]
+margin_left = 50.0
+margin_top = 535.0
+margin_right = 150.0
+margin_bottom = 560.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
