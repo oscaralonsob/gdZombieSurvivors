@@ -1,15 +1,16 @@
 extends KinematicBody2D
 
 
-var speed: int = 150
-var health: int = 100
+#TODO: use all stats
+var speed: float = 150
+var health: float = 100
 
 
 onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var _immunity_timer: TimerHelper = preload("res://helper/scene/TimerHelper.tscn").instance()
 
 
-var _current_health: int = health
+var _current_health: float = health
 var _is_immune: bool = false
 
 
@@ -76,6 +77,9 @@ func disable_immunity() -> void:
 
 
 func set_profession(c: ProfessionContainer) -> void:
-	health = c.health.get_value()
+	health = c.get_health().get_value()
 	_current_health = health
-	_scene_fully_loaded()
+	EventBus.emit_signal("player_damaged_signal", _current_health, health)
+
+	var s = c.get_speed().get_value()
+	speed = s

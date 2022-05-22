@@ -20,7 +20,7 @@ _value = 50.0
 [sub_resource type="Resource" id=3]
 script = ExtResource( 3 )
 _stat_type = 1
-_base_value = 150
+_base_value = 159
 _current_perks = [  ]
 
 [resource]

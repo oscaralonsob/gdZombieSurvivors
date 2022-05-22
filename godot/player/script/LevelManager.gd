@@ -30,5 +30,6 @@ func _add_experience(amount: float) -> void:
 		_current_level += 1
 		_current_experience -= experience_needed
 		experience_needed *=  LVL_INCREMENT
+		EventBus.emit_signal("level_up_signal", _current_level)
 	
 	EventBus.emit_signal("exp_updated_signal", _current_experience, experience_needed)

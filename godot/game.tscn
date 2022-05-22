@@ -37,3 +37,5 @@ pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="ClassMenu2" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = 1.0
+margin_right = 1.0
