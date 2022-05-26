@@ -28,10 +28,10 @@ func get_value() -> float:
 		else:
 			total_percentage_value = perk.get_value()
 	
-	_value = _base_value + _base_value * total_percentage_value / 100
-	_value = _value + total_flat_value
+	_value = _base_value + total_flat_value
+	_value = _value + _value * total_percentage_value / 100
 	
-	return _base_value
+	return _value
 
 
 func get_current_perks() -> Array:
@@ -40,12 +40,3 @@ func get_current_perks() -> Array:
 
 func add_perk(perk: Perk) -> void:
 	_current_perks.append(perk)
-
-
-# Add BaseStats in classContainer and also posible perks
-# ClassManager will load that. ClassManager wil react to events to perks events to increase stats
-# Other entities will:
-	# Access this:
-		# Singleton (NO)
-		# Dependency (Meh)
-	# Access dictionary class that search by a perk (same thing)

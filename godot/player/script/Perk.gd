@@ -6,12 +6,6 @@ export (ProfessionEnums.PerkType) var _perkType: int
 export (float) var _value: float
 
 
-func _init(statType: int, perkType: int, value: float) -> void:
-	_statType = statType
-	_perkType = perkType
-	_value = value
-
-
 func get_stat_type() -> int:
 	return _statType
 

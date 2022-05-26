@@ -3,7 +3,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	EventBus.connect("scene_fully_loaded_signal", self, "_enable_select_class")
-	EventBus.connect("class_selected_signal", self, "_selected_class")
+	EventBus.connect("ui_profession_selected_signal", self, "_selected_class")
 
 
 func _enable_select_class() -> void:
