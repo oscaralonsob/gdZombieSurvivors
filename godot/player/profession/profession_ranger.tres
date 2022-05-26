@@ -17,7 +17,7 @@ _statType = 0
 _perkType = 1
 _value = 10.0
 
-[sub_resource type="Resource" id=4]
+[sub_resource type="Resource" id=3]
 script = ExtResource( 3 )
 _stat_type = 0
 _base_value = 175
@@ -27,5 +27,5 @@ _current_perks = [  ]
 script = ExtResource( 1 )
 weapon_scene = ExtResource( 2 )
 health = SubResource( 1 )
-speed = SubResource( 4 )
+speed = SubResource( 3 )
 perks = [ SubResource( 2 ) ]

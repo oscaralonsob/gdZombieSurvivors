@@ -28,8 +28,8 @@ func get_value() -> float:
 		else:
 			total_percentage_value = perk.get_value()
 	
-	_value = _base_value + _base_value * total_percentage_value / 100
-	_value = _value + total_flat_value
+	_value = _base_value + total_flat_value
+	_value = _value + _value * total_percentage_value / 100
 	
 	return _value
 

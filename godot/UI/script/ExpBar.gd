@@ -4,12 +4,11 @@ extends ProgressBar
 onready var _label: Label = $Label
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	EventBus.connect("exp_updated_signal", self, "_update_bar")
+	var _connect_result = EventBus.connect("exp_updated_signal", self, "_update_bar")
 
 
-func _update_bar(v: float, max_v: float) -> void:
-	value = v
-	max_value = max_v
-	_label.text = str(v) + "/" + str(max_v)
+func _update_bar(expirence: float, max_expirence: float) -> void:
+	value = expirence
+	max_value = max_expirence
+	_label.text = str(expirence) + "/" + str(max_expirence)
