@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/zombieSpreedSheer.png-2de7d89ca7507f91047576bc9f024a8d.stex"
+path="res://.import/zombieSpriteSheet.png-fcbe4df1af6e3dcedda5b38e7f7663bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://zombie/asset/zombieSpreedSheer.png"
-dest_files=[ "res://.import/zombieSpreedSheer.png-2de7d89ca7507f91047576bc9f024a8d.stex" ]
+source_file="res://zombie/asset/zombieSpriteSheet.png"
+dest_files=[ "res://.import/zombieSpriteSheet.png-fcbe4df1af6e3dcedda5b38e7f7663bc.stex" ]
 
 [params]
 

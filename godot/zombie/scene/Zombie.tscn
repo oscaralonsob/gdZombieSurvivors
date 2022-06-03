@@ -1,47 +1,47 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://zombie/asset/zombieSpreedSheer.png" type="Texture" id=1]
+[ext_resource path="res://zombie/asset/zombieSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://zombie/script/Zombie.gd" type="Script" id=3]
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 98, 81 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 98, 0, 98, 81 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 196, 0, 98, 81 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 294, 0, 98, 81 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 2.5
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=6]
 
 [node name="Zombie" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 7 )
+frames = SubResource( 5 )
 animation = "Walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 6 )
