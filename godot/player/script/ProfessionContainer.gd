@@ -1,7 +1,7 @@
 extends Resource
 class_name ProfessionContainer
 
-
+export (String) var profession_name
 export (PackedScene) var weapon_scene
 export (Resource) var health
 export (Resource) var speed
@@ -11,6 +11,10 @@ export (Array, Resource) var perks
 
 
 var _rng = RandomNumberGenerator.new()
+
+
+func get_profession_name():
+	return profession_name
 
 
 func get_weapon_scene():
