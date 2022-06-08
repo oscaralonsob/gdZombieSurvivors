@@ -76,9 +76,9 @@ func _process_movement(vector_movement: Vector2, delta: float) -> void:
 	var _collision_info = move_and_collide(vector_movement * _profession.get_speed().get_value() * delta)
 	
 	if vector_movement != Vector2.ZERO:
-		_animated_sprite.play("Walk")
+		_animated_sprite.play(_profession.get_profession_name() + "Walk")
 	else:
-		_animated_sprite.play("Idle")
+		_animated_sprite.play(_profession.get_profession_name() + "Idle")
 
 
 func _process_rotation() -> void:

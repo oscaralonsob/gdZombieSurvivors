@@ -25,6 +25,7 @@ _current_perks = [  ]
 
 [resource]
 script = ExtResource( 1 )
+profession_name = "Ranger"
 weapon_scene = ExtResource( 2 )
 health = SubResource( 1 )
 speed = SubResource( 3 )

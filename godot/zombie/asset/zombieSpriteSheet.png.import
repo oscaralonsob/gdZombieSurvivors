@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/manOld_silencer.png-6ae9ed19e69025f0e52094d113ba21cf.stex"
+path="res://.import/zombieSpriteSheet.png-fcbe4df1af6e3dcedda5b38e7f7663bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/asset/manOld_silencer.png"
-dest_files=[ "res://.import/manOld_silencer.png-6ae9ed19e69025f0e52094d113ba21cf.stex" ]
+source_file="res://zombie/asset/zombieSpriteSheet.png"
+dest_files=[ "res://.import/zombieSpriteSheet.png-fcbe4df1af6e3dcedda5b38e7f7663bc.stex" ]
 
 [params]
 
