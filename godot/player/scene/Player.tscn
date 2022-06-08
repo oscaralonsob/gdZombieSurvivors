@@ -127,7 +127,6 @@ script = ExtResource( 3 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 30 )
 animation = "MeleeWalk"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
