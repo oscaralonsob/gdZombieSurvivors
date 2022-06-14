@@ -12,6 +12,7 @@ signal player_health_updated_signal(health, max_health)
 signal profession_updated_signal(class_selected)
 
 # Exp related
+signal enemy_killed_signal()
 signal exp_picked_up_signal()
 signal exp_updated_signal(expirence, max_expirence)
 signal level_up_signal()
