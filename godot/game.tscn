@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://zombie/scene/ZombieSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/scene/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://autoloader/Scene.gd" type="Script" id=7]
 [ext_resource path="res://UI/asset/background/bgGrass.png" type="Texture" id=8]
 [ext_resource path="res://UI/scene/KillCounter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://helper/script/Camera2D.gd" type="Script" id=10]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 7 )
@@ -43,6 +44,7 @@ centered = false
 current = true
 smoothing_enabled = true
 smoothing_speed = 7.0
+script = ExtResource( 10 )
 
 [node name="ZombieSpawner" parent="." instance=ExtResource( 1 )]
 position = Vector2( 300, 300 )
