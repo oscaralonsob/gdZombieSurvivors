@@ -48,6 +48,11 @@ _global_script_classes=[ {
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://weapons/script/Weapon.gd"
+}, {
+"base": "Resource",
+"class": "ZombieSpawnerConfiguration",
+"language": "GDScript",
+"path": "res://zombie/script/zombieSpawnerConfiguration.gd"
 } ]
 _global_script_class_icons={
 "CDHelper": "",
@@ -57,7 +62,8 @@ _global_script_class_icons={
 "Projectile": "",
 "Stat": "",
 "TimerHelper": "",
-"Weapon": ""
+"Weapon": "",
+"ZombieSpawnerConfiguration": ""
 }
 
 [application]

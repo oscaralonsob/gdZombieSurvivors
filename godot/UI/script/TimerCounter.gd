@@ -1,11 +1,7 @@
 extends Label
 
 
-var _counter: float = 0
-
-
-func _ready():
-	var _connect_result: int = 0
+var _counter: float = 0.0
 
 
 func _process(delta: float) -> void:

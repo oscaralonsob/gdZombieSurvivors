@@ -14,7 +14,12 @@ func init(cd: float, parent: Node2D, func_name: String) -> void:
 	_cd = cd
 
 
-func put_on_cd() -> void:
+func reduce_cd(amount: float) -> void:
+	_cd = _cd - amount
+	_cd = max(_cd, 0.1)
+
+
+func _put_on_cd() -> void:
 	_current_cd = _cd
 
 
@@ -27,4 +32,4 @@ func _process(delta: float) -> void:
 		_current_cd -= delta
 	else:
 		_func_ref.call_func()
-		put_on_cd()
+		_put_on_cd()

@@ -1,24 +1,40 @@
 extends Node2D
 
 
-export(PackedScene) var zombie_scene
+export (Resource) var _spawner_configuration
 
 
-onready var _spawner_cd: CDHelper = preload("res://helper/scene/CDHelper.tscn").instance()
+onready var _spawner_cd: TimerHelper = preload("res://helper/scene/TimerHelper.tscn").instance()
+onready var _dificulty_cd: TimerHelper = preload("res://helper/scene/TimerHelper.tscn").instance()
+
+
 var _rng = RandomNumberGenerator.new()
 var _spawn_offset: int = 100
 
 func _ready() -> void:
-	_spawner_cd.init(2, self, "_spawn")
+	_spawner_cd.init(_spawner_configuration.get_cd(), self, "_spawn_and_reset")
+	_dificulty_cd.init(_spawner_configuration.get_time_before_level_up(), self, "_level_up_and_reset")
 	_rng.randomize()
 
 
-func _spawn() -> void:
-	var random_position: Vector2 = _getRandomPosition()
-	var zombie: KinematicBody2D = zombie_scene.instance()
+func _spawn_and_reset() -> void:
+	var _number_to_spawn: float = _spawner_configuration.get_spawn_number()
+	var _number_spawned: float = 0
+
+	while (_number_spawned < _number_to_spawn):
+		var random_position: Vector2 = _getRandomPosition()
+		var zombie: KinematicBody2D = _spawner_configuration.get_zombie_instance()
+		
+		zombie.position = random_position;
+		get_parent().add_child(zombie)
+		_number_spawned = _number_spawned + 1
 	
-	zombie.position = random_position;
-	get_parent().add_child(zombie)
+	_spawner_cd.set_cd_and_reset(_spawner_configuration.get_cd())
+
+
+func _level_up_and_reset() -> void:
+	_spawner_configuration.level_up()
+	_dificulty_cd.set_cd_and_reset(_spawner_configuration.get_time_before_level_up())
 
 
 func _getRandomPosition() -> Vector2:

@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://zombie/script/ZombieSpawner.gd" type="Script" id=1]
 [ext_resource path="res://zombie/scene/Zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://zombie/script/zombieSpawnerConfiguration.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+_zombie_scene = ExtResource( 2 )
+_base_cd = 5.0
+_base_spawn_number = 1
+_base_time_before_level_up = 5.0
+_cd_by_level = 0.25
+_minimun_cd = 1.0
+_spawn_number_by_level = 0.25
+_time_before_level_up_by_level = 1.25
 
 [node name="ZombieSpawner" type="Node2D"]
 script = ExtResource( 1 )
-zombie_scene = ExtResource( 2 )
+_spawner_configuration = SubResource( 1 )

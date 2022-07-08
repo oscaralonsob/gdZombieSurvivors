@@ -12,10 +12,16 @@ func init(cd: float, parent: Node2D, func_name: String) -> void:
 	
 	_func_ref = funcref(parent, func_name)
 	_cd = cd
+	_current_cd = cd
 
 
 func reset() -> void:
 	_current_cd = _cd
+
+
+func set_cd_and_reset(cd: float) -> void:
+	_cd = cd
+	reset()
 
 
 func _is_in_cd() -> bool:
